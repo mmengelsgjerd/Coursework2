@@ -9,7 +9,7 @@ public:
 	~Number();
 	friend Number operator+(const Number& lhs, const Number& rhs);
 	friend std::ostream& operator<<(std::ostream& ostr, const Number& num);
-	bool IllegalCN();
+	bool ValidCN();
 
 private:
 	int a, b, c, d;
@@ -54,7 +54,7 @@ std::ostream& operator<<(std::ostream& ostr, const Number& num)
 	return ostr;
 }
 
-bool Number::IllegalCN()
+bool Number::ValidCN()
 {
 	int count = 0;
 	if (a == b) count += 1;
@@ -64,6 +64,6 @@ bool Number::IllegalCN()
 	if (b == d) count += 1;
 	if (c == d) count += 1;
 
-	if (count > 0) return true;
-	else return false;
+	if (count > 0) return false;
+	else return true;
 }
