@@ -10,6 +10,12 @@ public:
 	friend Number operator+(const Number& lhs, const Number& rhs);
 	friend std::ostream& operator<<(std::ostream& ostr, const Number& num);
 	bool ValidCN();
+	friend bool operator==(const Number& lhs, const Number& rhs);
+
+	int GetA();
+	int GetB();
+	int GetC();
+	int GetD();
 
 private:
 	int a, b, c, d;
@@ -67,3 +73,17 @@ bool Number::ValidCN()
 	if (count > 0) return false;
 	else return true;
 }
+
+bool operator==(const Number& lhs, const Number& rhs)
+{
+	if (lhs.a != rhs.a) return true;
+	else if (lhs.b != rhs.b) return true;
+	else if (lhs.c != rhs.c) return true;
+	else if (lhs.d != rhs.d) return true;
+	else return false;
+}
+
+int Number::GetA() { return a; }
+int Number::GetB() { return b; }
+int Number::GetC() { return c; }
+int Number::GetD() { return d; }
