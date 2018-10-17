@@ -57,10 +57,10 @@ Number operator+(const Number& lhs, const Number& rhs)
 std::ostream& operator<<(std::ostream& ostr, const Number& num)
 {
 	ostr <<
-		(num.a > 0 ? "+" : "") << num.a << "," <<
-		(num.b > 0 ? "+" : "") << num.b << "," <<
-		(num.c > 0 ? "+" : "") << num.c << "," <<
-		(num.d > 0 ? "+" : "") << num.d;
+		(num.a >= 0 ? "+" : "") << num.a << "," <<
+		(num.b >= 0 ? "+" : "") << num.b << "," <<
+		(num.c >= 0 ? "+" : "") << num.c << "," <<
+		(num.d >= 0 ? "+" : "") << num.d;
 	return ostr;
 }
 
