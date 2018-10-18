@@ -7,6 +7,7 @@ public:
 	Number();
 	Number(int a, int b, int c, int d);
 	~Number();
+
 	friend Number operator+(const Number& lhs, const Number& rhs);
 	friend std::ostream& operator<<(std::ostream& ostr, const Number& num);
 	bool ValidCN();
