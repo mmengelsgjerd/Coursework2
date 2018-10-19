@@ -81,10 +81,7 @@ bool Number::ValidCN()
 
 bool operator==(const Number& lhs, const Number& rhs)
 {
-	if (lhs.a != rhs.a) return true;
-	else if (lhs.b != rhs.b) return true;
-	else if (lhs.c != rhs.c) return true;
-	else if (lhs.d != rhs.d) return true;
+	if ((lhs.a != rhs.a) || (lhs.b != rhs.b) || (lhs.c != rhs.c) || (lhs.d != rhs.d)) return true;
 	else return false;
 }
 
