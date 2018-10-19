@@ -65,6 +65,7 @@ bool operator < (Lock& lhs, Lock& rhs)
 {
 	//if ((lhs.GetCN().GetA() + lhs.GetCN().GetB() + lhs.GetCN().GetC() + lhs.GetCN().GetD()) < (rhs.GetCN().GetA() + rhs.GetCN().GetB() + rhs.GetCN().GetC() + rhs.GetCN().GetD())) return true;
 	//else return false;
+	return false;
 }
 
 bool Lock::Validate()
