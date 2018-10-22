@@ -18,10 +18,19 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Number.h">
+    <ClInclude Include="MultiLock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Lock.h">
+    <ClInclude Include="LockDigit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Digits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HashKey.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Root.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

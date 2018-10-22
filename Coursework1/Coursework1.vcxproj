@@ -151,9 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Lock.h" />
-    <ClInclude Include="Number.h" />
+    <ClInclude Include="Digits.h" />
+    <ClInclude Include="HashKey.h" />
+    <ClInclude Include="MultiLock.h" />
+    <ClInclude Include="LockDigit.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Root.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Coursework1.cpp" />

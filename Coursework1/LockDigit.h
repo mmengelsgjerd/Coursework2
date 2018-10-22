@@ -2,16 +2,17 @@
 
 #include <random>
 
-class Number {
+class LockDigit {
 public:
-	Number();
-	Number(int a, int b, int c, int d);
-	~Number();
-
-	friend Number operator+(const Number& lhs, const Number& rhs);
-	friend std::ostream& operator<<(std::ostream& ostr, const Number& num);
+	LockDigit();
+	LockDigit(int a, int b, int c, int d);
+	~LockDigit();
 	bool ValidCN();
-	friend bool operator==(const Number& lhs, const Number& rhs);
+	
+
+	friend LockDigit operator+(const LockDigit& lhs, const LockDigit& rhs);
+	friend std::ostream& operator<<(std::ostream& ostr, const LockDigit& num);
+	friend bool operator==(const LockDigit& lhs, const LockDigit& rhs);
 
 	int GetA();
 	int GetB();
@@ -23,20 +24,20 @@ private:
 
 };
 
-Number::Number() :
+LockDigit::LockDigit() :
 	a(rand() % 19 - 9), b(rand() % 19 - 9),
 	c(rand() % 19 - 9), d(rand() % 19 - 9)
 
 {	
 }
 
-Number::Number(int a, int b, int c, int d) :
+LockDigit::LockDigit(int a, int b, int c, int d) :
 	a(a), b(b), c(c), d(d)
 {}
 
-Number::~Number(){}
+LockDigit::~LockDigit(){}
 
-Number operator+(const Number& lhs, const Number& rhs)
+LockDigit operator+(const LockDigit& lhs, const LockDigit& rhs)
 {
 	/*Number num = Number((lhs.a + rhs.a) % 10, (lhs.b + rhs.b) % 10, (lhs.c + rhs.c) % 10, (lhs.d + rhs.d) % 10);
 
@@ -50,12 +51,12 @@ Number operator+(const Number& lhs, const Number& rhs)
 	int c = (lhs.c + rhs.c) % 10; if (c < 0) c += 10;
 	int d = (lhs.d + rhs.d) % 10; if (d < 0) d += 10;
 
-	Number n = Number(a, b, c, d);
+	LockDigit n = LockDigit(a, b, c, d);
 
 	return n;
 }
 
-std::ostream& operator<<(std::ostream& ostr, const Number& num)
+std::ostream& operator<<(std::ostream& ostr, const LockDigit& num)
 {
 	ostr <<
 		(num.a >= 0 ? "+" : "") << num.a << "," <<
@@ -65,7 +66,7 @@ std::ostream& operator<<(std::ostream& ostr, const Number& num)
 	return ostr;
 }
 
-bool Number::ValidCN()
+bool LockDigit::ValidCN()
 {
 	int count = 0;
 	if (a == b) count += 1;
@@ -79,13 +80,13 @@ bool Number::ValidCN()
 	else return true;
 }
 
-bool operator==(const Number& lhs, const Number& rhs)
+bool operator==(const LockDigit& lhs, const LockDigit& rhs)
 {
 	if ((lhs.a != rhs.a) || (lhs.b != rhs.b) || (lhs.c != rhs.c) || (lhs.d != rhs.d)) return true;
 	else return false;
 }
 
-int Number::GetA() { return a; }
-int Number::GetB() { return b; }
-int Number::GetC() { return c; }
-int Number::GetD() { return d; }
+int LockDigit::GetA() { return a; }
+int LockDigit::GetB() { return b; }
+int LockDigit::GetC() { return c; }
+int LockDigit::GetD() { return d; }
