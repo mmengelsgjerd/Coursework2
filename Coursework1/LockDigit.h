@@ -1,5 +1,5 @@
 #pragma once
-
+/*
 #include <random>
 
 class LockDigit {
@@ -39,13 +39,13 @@ LockDigit::~LockDigit(){}
 
 LockDigit operator+(const LockDigit& lhs, const LockDigit& rhs)
 {
-	/*Number num = Number((lhs.a + rhs.a) % 10, (lhs.b + rhs.b) % 10, (lhs.c + rhs.c) % 10, (lhs.d + rhs.d) % 10);
+	Number num = Number((lhs.a + rhs.a) % 10, (lhs.b + rhs.b) % 10, (lhs.c + rhs.c) % 10, (lhs.d + rhs.d) % 10);
 
 	if (num.a < 0) { num.a += 10; }
 	if (num.b < 0) { num.b += 10; }
 	if (num.c < 0) { num.c += 10; }
 	if (num.d < 0) { num.d += 10; }
-	*/
+	
 	int a = (lhs.a + rhs.a) % 10; if (a < 0) a += 10;
 	int b = (lhs.b + rhs.b) % 10; if (b < 0) b += 10;
 	int c = (lhs.c + rhs.c) % 10; if (c < 0) c += 10;
@@ -90,3 +90,5 @@ int LockDigit::GetA() { return a; }
 int LockDigit::GetB() { return b; }
 int LockDigit::GetC() { return c; }
 int LockDigit::GetD() { return d; }
+
+*/

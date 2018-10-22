@@ -2,7 +2,7 @@
 #include "Digits.h"
 
 
-class Root : public Digits
+class Root : public Digits<int>
 {
 public:
 	Root();

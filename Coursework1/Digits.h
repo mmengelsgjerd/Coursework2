@@ -2,43 +2,54 @@
 
 #include <random>
 
-//template <typename T>
+template <typename T>
 class Digits {
 public:
-	Digits();
-	Digits(int a, int b, int c, int d);
+	Digits<T>();
+	Digits(T a, T b, T c, T d);
 	~Digits();
 	bool ValidCN();
 
-	friend Digits operator+(const Digits& lhs, const Digits& rhs);
-	friend std::ostream& operator<<(std::ostream& ostr, const Digits& num);
-	friend bool operator==(const Digits& lhs, const Digits& rhs);
-	friend bool operator < (const Digits& lhs, const Digits& rhs);
+	template <typename T>
+	friend Digits<T> operator+(const Digits<T>& lhs, const Digits<T>& rhs);
 
-	int GetA();
-	int GetB();
-	int GetC();
-	int GetD();
+	template <typename T>
+	friend std::ostream& operator<<(std::ostream& ostr, const Digits<T>& num);
+
+	template <typename T>
+	friend bool operator==(const Digits<T>& lhs, const Digits<T>& rhs);
+
+	template <typename T>
+	friend bool operator < (const Digits<T>& lhs, const Digits<T>& rhs);
+
+	T GetA();
+	T GetB();
+	T GetC();
+	T GetD();
 
 protected:
-	int a, b, c, d;
+	T a, b, c, d;
 
 };
 
-Digits::Digits() :
+template <typename T>
+Digits<T>::Digits() :
 	a(rand() % 19 - 9), b(rand() % 19 - 9),
 	c(rand() % 19 - 9), d(rand() % 19 - 9)
 
 {
 }
 
-Digits::Digits(int a, int b, int c, int d) :
+template <typename T>
+Digits<T>::Digits(T a, T b, T c, T d) :
 	a(a), b(b), c(c), d(d)
 {}
 
-Digits::~Digits() {}
+template <typename T>
+Digits<T>::~Digits() {}
 
-bool Digits::ValidCN()
+template <typename T>
+bool Digits<T>::ValidCN()
 {
 	int count = 0;
 	if (a == b) count += 1;
@@ -52,17 +63,19 @@ bool Digits::ValidCN()
 	else return true;
 }
 
-Digits operator+(const Digits& lhs, const Digits& rhs)
+template <typename T>
+Digits<T> operator+(const Digits<T>& lhs, const Digits<T>& rhs)
 {
-	int a = (lhs.a + rhs.a) % 10; if (a < 0) a += 10;
-	int b = (lhs.b + rhs.b) % 10; if (b < 0) b += 10;
-	int c = (lhs.c + rhs.c) % 10; if (c < 0) c += 10;
-	int d = (lhs.d + rhs.d) % 10; if (d < 0) d += 10;
+	T a = (lhs.a + rhs.a) % 10; if (a < 0) a += 10;
+	T b = (lhs.b + rhs.b) % 10; if (b < 0) b += 10;
+	T c = (lhs.c + rhs.c) % 10; if (c < 0) c += 10;
+	T d = (lhs.d + rhs.d) % 10; if (d < 0) d += 10;
 
-	return Digits(a, b, c, d);
+	return Digits<T>(a, b, c, d);
 }
 
-std::ostream& operator<<(std::ostream& ostr, const Digits& num)
+template <typename T>
+std::ostream& operator<<(std::ostream& ostr, const Digits<T>& num)
 {
 	ostr <<
 		(num.a >= 0 ? "+" : "") << num.a << "," <<
@@ -72,21 +85,27 @@ std::ostream& operator<<(std::ostream& ostr, const Digits& num)
 	return ostr;
 }
 
-bool operator==(const Digits& lhs, const Digits& rhs)
+template <typename T>
+bool operator==(const Digits<T>& lhs, const Digits<T>& rhs)
 {
 	if ((lhs.a != rhs.a) || (lhs.b != rhs.b) || (lhs.c != rhs.c) || (lhs.d != rhs.d)) return true;
 	else return false;
 }
 
-bool operator < (const Digits& lhs, const Digits& rhs)
+template <typename T>
+bool operator < (const Digits<T>& lhs, const Digits<T>& rhs)
 {
-	int x = (lhs.a + lhs.b + lhs.c + lhs.d);
-	int y = (rhs.a + rhs.b + rhs.c + rhs.d);
+	T x = (lhs.a + lhs.b + lhs.c + lhs.d);
+	T y = (rhs.a + rhs.b + rhs.c + rhs.d);
 	if (x < y) return true;
 	else return false;
 }
 
-int Digits::GetA() { return a; }
-int Digits::GetB() { return b; }
-int Digits::GetC() { return c; }
-int Digits::GetD() { return d; }
+template <typename T>
+T Digits<T>::GetA() { return a; }
+template <typename T>
+T Digits<T>::GetB() { return b; }
+template <typename T>
+T Digits<T>::GetC() { return c; }
+template <typename T>
+T Digits<T>::GetD() { return d; }

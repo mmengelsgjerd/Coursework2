@@ -1,7 +1,7 @@
 #pragma once
 #include "Digits.h"
 
-class HashKey : virtual public Digits
+class HashKey : virtual public Digits<int>
 {
 public:
 	HashKey();

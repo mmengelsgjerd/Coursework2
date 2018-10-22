@@ -21,9 +21,6 @@
     <ClInclude Include="MultiLock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LockDigit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Digits.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -31,6 +28,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Root.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Set.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
