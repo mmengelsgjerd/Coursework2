@@ -4,7 +4,6 @@
 
 class MultiLock {
 
-
 public:
 	MultiLock();
 	~MultiLock();
@@ -28,7 +27,7 @@ public:
 	Digits<int> GetLN(int i);
 	Digits<int> GetHN(int i);
 
- private:
+ private:	 
 	 Digits<int> CN[5] = { Digits<int>(0,0,0,0) };
 	 Digits<int> LN[5] = { Digits<int>(0,0,0,0) };
 	 Digits<int> HN[5] = { Digits<int>(0,0,0,0) };
@@ -39,7 +38,8 @@ public:
 };
 
 
-MultiLock::MultiLock() {}
+MultiLock::MultiLock(){}
+
 MultiLock::~MultiLock(){}
 
 void MultiLock::SetCN(Digits<int> arg, int i){ CN[i] = arg; }
@@ -68,8 +68,8 @@ bool MultiLock::Validate()
 		if (!validLN[i]) count += 1;
 		if (!validHN[i]) count += 1;
 	}
-	if (count == 0 && SumToLeftLess() && SumEquals()) return true;
-	//if (count == 0) return true;
+	//if (count == 0 && SumToLeftLess() && SumEquals()) return true;
+	if (count == 0) return true;
 	else return false;
 }
 
