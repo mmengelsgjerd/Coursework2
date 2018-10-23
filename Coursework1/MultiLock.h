@@ -17,8 +17,8 @@ public:
 
 	bool IsValidCN(int i);
 	bool IsValidLN(int i);
-	bool IsValidHN(int i);
-	
+	bool IsValidHN(int i); 
+	 
 	bool Validate();
 	bool SumToLeftLess();
 	bool SumEquals();
