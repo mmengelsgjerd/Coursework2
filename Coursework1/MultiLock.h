@@ -2,24 +2,28 @@
 //#include "LockDigit.h"
 #include "Digits.h"
 
+using namespace std;
+
 class MultiLock {
 
 public:
 	MultiLock();
 	~MultiLock();
-	void SetCN(Digits<int> arg, int i);
-	void SetLN(Digits<int> arg, int i);
-	void SetHN(Digits<int> arg, int i);
+	void SetCN(Digits<int> arg);
+	void SetLN(Digits<int> arg);
+	void SetHN(Digits<int> arg);
 
-	void SetValidCN(bool arg, int i);
-	void SetValidLN(bool arg, int i);
-	void SetValidHN(bool arg, int i);
+	void ClearLN();
+
+	void SetValidCN(bool arg);
+	void SetValidLN(bool arg);
+	void SetValidHN(bool arg);
 
 	bool IsValidCN(int i);
 	bool IsValidLN(int i);
 	bool IsValidHN(int i); 
 	 
-	bool Validate();
+	bool Validate(int safeSize);
 	bool SumToLeftLess();
 	bool SumEquals();
 
@@ -27,14 +31,14 @@ public:
 	Digits<int> GetLN(int i);
 	Digits<int> GetHN(int i);
 
- private:	 
-	 Digits<int> CN[5] = { Digits<int>(0,0,0,0) };
-	 Digits<int> LN[5] = { Digits<int>(0,0,0,0) };
-	 Digits<int> HN[5] = { Digits<int>(0,0,0,0) };
-	 bool validCN[5];
-	 bool validLN[5];
-	 bool validHN[5];
+ private:
+	 vector<Digits<int> > CN;
+	 vector<Digits<int> > LN;
+	 vector<Digits<int> > HN;
 
+	 vector<bool> validCN;
+	 vector<bool> validLN;
+	 vector<bool> validHN;
 };
 
 
@@ -42,13 +46,15 @@ MultiLock::MultiLock(){}
 
 MultiLock::~MultiLock(){}
 
-void MultiLock::SetCN(Digits<int> arg, int i){ CN[i] = arg; }
-void MultiLock::SetLN(Digits<int> arg, int i) { LN[i] = arg; }
-void MultiLock::SetHN(Digits<int> arg, int i) { HN[i] = arg; }
+void MultiLock::SetCN(Digits<int> arg) { CN.push_back(arg); }
+void MultiLock::SetLN(Digits<int> arg) { LN.push_back(arg); }
+void MultiLock::SetHN(Digits<int> arg) { HN.push_back(arg); }
 
-void MultiLock::SetValidCN(bool arg, int i) { validCN[i] = arg; }
-void MultiLock::SetValidLN(bool arg, int i) { validLN[i] = arg; }
-void MultiLock::SetValidHN(bool arg, int i) { validHN[i] = arg; }
+void MultiLock::ClearLN() { LN.clear(); }
+
+void MultiLock::SetValidCN(bool arg) { validCN.push_back(arg); }
+void MultiLock::SetValidLN(bool arg) { validLN.push_back(arg); }
+void MultiLock::SetValidHN(bool arg) { validHN.push_back(arg); }
 
 bool MultiLock::IsValidCN(int i) { return validCN[i]; }
 bool MultiLock::IsValidLN(int i) { return validLN[i]; }
@@ -59,10 +65,10 @@ Digits<int> MultiLock::GetCN(int i) { return CN[i]; }
 Digits<int> MultiLock::GetLN(int i) { return LN[i]; }
 Digits<int> MultiLock::GetHN(int i) { return HN[i]; }
 
-bool MultiLock::Validate()
+bool MultiLock::Validate(int safeSize)
 {
 	int count = 0;
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < safeSize; i++)
 	{
 		if (!validCN[i]) count += 1;
 		if (!validLN[i]) count += 1;
