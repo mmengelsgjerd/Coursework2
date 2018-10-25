@@ -1,5 +1,6 @@
 #pragma once
 
+#include "pch.h"
 #include <random>
 
 template <typename T>
@@ -36,6 +37,7 @@ protected:
 
 };
 
+
 template <typename T>
 Digits<T>::Digits() :
 	a(rand() % 8 - 9), b(rand() % 10 - 0),
@@ -66,6 +68,7 @@ bool Digits<T>::ValidCN()
 	if (count > 0) return false;
 	else return true;
 }
+
 
 template <typename T>
 Digits<T> operator+(const Digits<T>& lhs, const Digits<T>& rhs)
