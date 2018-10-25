@@ -26,6 +26,7 @@ public:
 	template <typename T>
 	friend Digits<T> operator - (const Digits<T>& lhs, const Digits<T>& rhs);
 
+
 	T GetA();
 	T GetB();
 	T GetC();
