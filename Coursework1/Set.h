@@ -1,4 +1,6 @@
 #pragma once
+#pragma warning( disable : 4290 )  
+
 #include "HashKey.h"
 #include "Root.h"
 
